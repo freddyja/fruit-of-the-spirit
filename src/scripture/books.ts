@@ -1,0 +1,81 @@
+import type { Language } from '../i18n/messages'
+
+export type Testament = 'ot' | 'nt'
+
+export type Book = {
+  id: string
+  testament: Testament
+  chapters: number
+  names: Record<Language, string>
+}
+
+export const BOOKS: readonly Book[] = [
+  { id: 'gen', testament: 'ot', chapters: 50, names: { en: 'Genesis', es: 'Génesis', pt: 'Gênesis' } },
+  { id: 'exo', testament: 'ot', chapters: 40, names: { en: 'Exodus', es: 'Éxodo', pt: 'Êxodo' } },
+  { id: 'lev', testament: 'ot', chapters: 27, names: { en: 'Leviticus', es: 'Levítico', pt: 'Levítico' } },
+  { id: 'num', testament: 'ot', chapters: 36, names: { en: 'Numbers', es: 'Números', pt: 'Números' } },
+  { id: 'deu', testament: 'ot', chapters: 34, names: { en: 'Deuteronomy', es: 'Deuteronomio', pt: 'Deuteronômio' } },
+  { id: 'jos', testament: 'ot', chapters: 24, names: { en: 'Joshua', es: 'Josué', pt: 'Josué' } },
+  { id: 'jdg', testament: 'ot', chapters: 21, names: { en: 'Judges', es: 'Jueces', pt: 'Juízes' } },
+  { id: 'rut', testament: 'ot', chapters: 4, names: { en: 'Ruth', es: 'Rut', pt: 'Rute' } },
+  { id: '1sa', testament: 'ot', chapters: 31, names: { en: '1 Samuel', es: '1 Samuel', pt: '1 Samuel' } },
+  { id: '2sa', testament: 'ot', chapters: 24, names: { en: '2 Samuel', es: '2 Samuel', pt: '2 Samuel' } },
+  { id: '1ki', testament: 'ot', chapters: 22, names: { en: '1 Kings', es: '1 Reyes', pt: '1 Reis' } },
+  { id: '2ki', testament: 'ot', chapters: 25, names: { en: '2 Kings', es: '2 Reyes', pt: '2 Reis' } },
+  { id: '1ch', testament: 'ot', chapters: 29, names: { en: '1 Chronicles', es: '1 Crónicas', pt: '1 Crônicas' } },
+  { id: '2ch', testament: 'ot', chapters: 36, names: { en: '2 Chronicles', es: '2 Crónicas', pt: '2 Crônicas' } },
+  { id: 'ezr', testament: 'ot', chapters: 10, names: { en: 'Ezra', es: 'Esdras', pt: 'Esdras' } },
+  { id: 'neh', testament: 'ot', chapters: 13, names: { en: 'Nehemiah', es: 'Nehemías', pt: 'Neemias' } },
+  { id: 'est', testament: 'ot', chapters: 10, names: { en: 'Esther', es: 'Ester', pt: 'Ester' } },
+  { id: 'job', testament: 'ot', chapters: 42, names: { en: 'Job', es: 'Job', pt: 'Jó' } },
+  { id: 'psa', testament: 'ot', chapters: 150, names: { en: 'Psalms', es: 'Salmos', pt: 'Salmos' } },
+  { id: 'pro', testament: 'ot', chapters: 31, names: { en: 'Proverbs', es: 'Proverbios', pt: 'Provérbios' } },
+  { id: 'ecc', testament: 'ot', chapters: 12, names: { en: 'Ecclesiastes', es: 'Eclesiastés', pt: 'Eclesiastes' } },
+  { id: 'sng', testament: 'ot', chapters: 8, names: { en: 'Song of Solomon', es: 'Cantares', pt: 'Cânticos' } },
+  { id: 'isa', testament: 'ot', chapters: 66, names: { en: 'Isaiah', es: 'Isaías', pt: 'Isaías' } },
+  { id: 'jer', testament: 'ot', chapters: 52, names: { en: 'Jeremiah', es: 'Jeremías', pt: 'Jeremias' } },
+  { id: 'lam', testament: 'ot', chapters: 5, names: { en: 'Lamentations', es: 'Lamentaciones', pt: 'Lamentações' } },
+  { id: 'ezk', testament: 'ot', chapters: 48, names: { en: 'Ezekiel', es: 'Ezequiel', pt: 'Ezequiel' } },
+  { id: 'dan', testament: 'ot', chapters: 12, names: { en: 'Daniel', es: 'Daniel', pt: 'Daniel' } },
+  { id: 'hos', testament: 'ot', chapters: 14, names: { en: 'Hosea', es: 'Oseas', pt: 'Oseias' } },
+  { id: 'jol', testament: 'ot', chapters: 3, names: { en: 'Joel', es: 'Joel', pt: 'Joel' } },
+  { id: 'amo', testament: 'ot', chapters: 9, names: { en: 'Amos', es: 'Amós', pt: 'Amós' } },
+  { id: 'oba', testament: 'ot', chapters: 1, names: { en: 'Obadiah', es: 'Abdías', pt: 'Obadias' } },
+  { id: 'jon', testament: 'ot', chapters: 4, names: { en: 'Jonah', es: 'Jonás', pt: 'Jonas' } },
+  { id: 'mic', testament: 'ot', chapters: 7, names: { en: 'Micah', es: 'Miqueas', pt: 'Miquéias' } },
+  { id: 'nah', testament: 'ot', chapters: 3, names: { en: 'Nahum', es: 'Nahúm', pt: 'Naum' } },
+  { id: 'hab', testament: 'ot', chapters: 3, names: { en: 'Habakkuk', es: 'Habacuc', pt: 'Habacuque' } },
+  { id: 'zep', testament: 'ot', chapters: 3, names: { en: 'Zephaniah', es: 'Sofonías', pt: 'Sofonias' } },
+  { id: 'hag', testament: 'ot', chapters: 2, names: { en: 'Haggai', es: 'Hageo', pt: 'Ageu' } },
+  { id: 'zec', testament: 'ot', chapters: 14, names: { en: 'Zechariah', es: 'Zacarías', pt: 'Zacarias' } },
+  { id: 'mal', testament: 'ot', chapters: 4, names: { en: 'Malachi', es: 'Malaquías', pt: 'Malaquias' } },
+  { id: 'mat', testament: 'nt', chapters: 28, names: { en: 'Matthew', es: 'Mateo', pt: 'Mateus' } },
+  { id: 'mrk', testament: 'nt', chapters: 16, names: { en: 'Mark', es: 'Marcos', pt: 'Marcos' } },
+  { id: 'luk', testament: 'nt', chapters: 24, names: { en: 'Luke', es: 'Lucas', pt: 'Lucas' } },
+  { id: 'jhn', testament: 'nt', chapters: 21, names: { en: 'John', es: 'Juan', pt: 'João' } },
+  { id: 'act', testament: 'nt', chapters: 28, names: { en: 'Acts', es: 'Hechos', pt: 'Atos' } },
+  { id: 'rom', testament: 'nt', chapters: 16, names: { en: 'Romans', es: 'Romanos', pt: 'Romanos' } },
+  { id: '1co', testament: 'nt', chapters: 16, names: { en: '1 Corinthians', es: '1 Corintios', pt: '1 Coríntios' } },
+  { id: '2co', testament: 'nt', chapters: 13, names: { en: '2 Corinthians', es: '2 Corintios', pt: '2 Coríntios' } },
+  { id: 'gal', testament: 'nt', chapters: 6, names: { en: 'Galatians', es: 'Gálatas', pt: 'Gálatas' } },
+  { id: 'eph', testament: 'nt', chapters: 6, names: { en: 'Ephesians', es: 'Efesios', pt: 'Efésios' } },
+  { id: 'php', testament: 'nt', chapters: 4, names: { en: 'Philippians', es: 'Filipenses', pt: 'Filipenses' } },
+  { id: 'col', testament: 'nt', chapters: 4, names: { en: 'Colossians', es: 'Colosenses', pt: 'Colossenses' } },
+  { id: '1th', testament: 'nt', chapters: 5, names: { en: '1 Thessalonians', es: '1 Tesalonicenses', pt: '1 Tessalonicenses' } },
+  { id: '2th', testament: 'nt', chapters: 3, names: { en: '2 Thessalonians', es: '2 Tesalonicenses', pt: '2 Tessalonicenses' } },
+  { id: '1ti', testament: 'nt', chapters: 6, names: { en: '1 Timothy', es: '1 Timoteo', pt: '1 Timóteo' } },
+  { id: '2ti', testament: 'nt', chapters: 4, names: { en: '2 Timothy', es: '2 Timoteo', pt: '2 Timóteo' } },
+  { id: 'tit', testament: 'nt', chapters: 3, names: { en: 'Titus', es: 'Tito', pt: 'Tito' } },
+  { id: 'phm', testament: 'nt', chapters: 1, names: { en: 'Philemon', es: 'Filemón', pt: 'Filemom' } },
+  { id: 'heb', testament: 'nt', chapters: 13, names: { en: 'Hebrews', es: 'Hebreos', pt: 'Hebreus' } },
+  { id: 'jas', testament: 'nt', chapters: 5, names: { en: 'James', es: 'Santiago', pt: 'Tiago' } },
+  { id: '1pe', testament: 'nt', chapters: 5, names: { en: '1 Peter', es: '1 Pedro', pt: '1 Pedro' } },
+  { id: '2pe', testament: 'nt', chapters: 3, names: { en: '2 Peter', es: '2 Pedro', pt: '2 Pedro' } },
+  { id: '1jn', testament: 'nt', chapters: 5, names: { en: '1 John', es: '1 Juan', pt: '1 João' } },
+  { id: '2jn', testament: 'nt', chapters: 1, names: { en: '2 John', es: '2 Juan', pt: '2 João' } },
+  { id: '3jn', testament: 'nt', chapters: 1, names: { en: '3 John', es: '3 Juan', pt: '3 João' } },
+  { id: 'jud', testament: 'nt', chapters: 1, names: { en: 'Jude', es: 'Judas', pt: 'Judas' } },
+  { id: 'rev', testament: 'nt', chapters: 22, names: { en: 'Revelation', es: 'Apocalipsis', pt: 'Apocalipse' } },
+]
+
+export const NEW_TESTAMENT_INDEX = 39
