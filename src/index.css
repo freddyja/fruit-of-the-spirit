@@ -269,7 +269,16 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
   box-shadow: 0 0 12px rgba(224, 195, 106, 0.35);
 }
 .book-card { display: flex; flex-direction: column; gap: 0.2rem; min-height: 6.2rem; }
-.book-card[data-later='true'] { opacity: 0.55; }
+.book-card[data-later='true'] { opacity: 0.55; cursor: default; }
+.later-books { margin-top: 1.4rem; }
+.later-books > summary {
+  cursor: pointer;
+  font-family: var(--font-verse);
+  font-size: 1.25rem;
+  font-weight: 600;
+  list-style: none;
+}
+.later-books > summary::-webkit-details-marker { display: none; }
 .later {
   color: var(--gold);
   font-size: 0.75rem;
