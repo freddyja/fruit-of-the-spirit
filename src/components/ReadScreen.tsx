@@ -169,8 +169,26 @@ export function ReadScreen({
 
       {showBooks ? (
         <>
-          <BookGroup title={t('oldTestament')} books={BOOKS.slice(0, NEW_TESTAMENT_INDEX)} offset={0} onOpenBook={onOpenBook} />
-          <BookGroup title={t('newTestament')} books={BOOKS.slice(NEW_TESTAMENT_INDEX)} offset={NEW_TESTAMENT_INDEX} onOpenBook={onOpenBook} />
+          <BookGroup
+            title={t('readyBooks')}
+            books={BOOKS.map((book, index) => ({ book, index })).filter(({ book }) => bookIsBundled(book.id))}
+            onOpenBook={onOpenBook}
+          />
+          <p className="setting-help">{t('bookMissingHelp')}</p>
+          <BookGroup
+            title={t('oldTestament')}
+            books={BOOKS.slice(0, NEW_TESTAMENT_INDEX)
+              .map((book, index) => ({ book, index }))
+              .filter(({ book }) => !bookIsBundled(book.id))}
+            onOpenBook={onOpenBook}
+          />
+          <BookGroup
+            title={t('newTestament')}
+            books={BOOKS.slice(NEW_TESTAMENT_INDEX)
+              .map((book, index) => ({ book, index: index + NEW_TESTAMENT_INDEX }))
+              .filter(({ book }) => !bookIsBundled(book.id))}
+            onOpenBook={onOpenBook}
+          />
         </>
       ) : null}
     </div>
@@ -180,26 +198,33 @@ export function ReadScreen({
 function BookGroup({
   title,
   books,
-  offset,
   onOpenBook,
 }: {
   title: string
-  books: readonly (typeof BOOKS)[number][]
-  offset: number
+  books: readonly { book: (typeof BOOKS)[number]; index: number }[]
   onOpenBook: (bookIndex: number) => void
 }) {
   const { language, t } = useLanguage()
+  if (!books.length) return null
   return (
     <section>
       <h2 className="section-title">{title}</h2>
       <div className="book-grid">
-        {books.map((book, index) => {
-          const bundled = bookIsBundled(book.id)
+        {books.map(({ book, index }) => {
+          const name = <span>{book.names[language]}</span>
+          if (!bookIsBundled(book.id)) {
+            return (
+              <div key={book.id} className="book-card" data-later="true">
+                <BookArt bookId={book.id} />
+                {name}
+                <span className="later">{t('later')}</span>
+              </div>
+            )
+          }
           return (
-            <button key={book.id} type="button" className="book-card" data-later={bundled ? undefined : 'true'} onClick={() => onOpenBook(offset + index)}>
+            <button key={book.id} type="button" className="book-card" onClick={() => onOpenBook(index)}>
               <BookArt bookId={book.id} />
-              <span>{book.names[language]}</span>
-              {bundled ? null : <span className="later">{t('later')}</span>}
+              {name}
             </button>
           )
         })}

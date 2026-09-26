@@ -143,8 +143,8 @@ export default function App() {
     setPanel(null)
     setView({ kind: 'tabs' })
     setSelected(null)
-    if (!bookIsBundled(BOOKS[nextBook]?.id ?? '')) setRead({ kind: 'missing', bookIndex: nextBook })
-    else setRead({ kind: 'book', bookIndex: nextBook })
+    if (!bookIsBundled(BOOKS[nextBook]?.id ?? '')) return
+    setRead({ kind: 'book', bookIndex: nextBook })
   }
 
   function showShelf() {
