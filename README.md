@@ -62,6 +62,6 @@ Bíblia Livre is used under [CC BY 3.0 Brazil](https://creativecommons.org/licen
 
 ## GitHub Pages
 
-`.github/workflows/pages.yml` builds with `VITE_BASE_PATH=/fruit-of-the-spirit/` and deploys the `dist` folder. In the repository settings, Pages must use GitHub Actions. The live path is `https://freddyja.github.io/fruit-of-the-spirit/`.
+`.github/workflows/pages.yml` builds with `VITE_BASE_PATH=/fruit-of-the-spirit/` and deploys the `dist` folder from `main`. Pull requests run the same build and do not deploy, because the Pages environment only accepts `main`. In the repository settings, Pages must use GitHub Actions. The live path is `https://freddyja.github.io/fruit-of-the-spirit/`.
 
 `npm run dev` stays at `/` so local work is unchanged.
