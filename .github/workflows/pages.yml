@@ -3,9 +3,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - cursor/fruit-of-the-spirit-scaffold-3b22
       - main
-  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -24,31 +22,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-        env:
-          VITE_BASE_PATH: /fruit-of-the-spirit/
-
-      - name: Pages files
-        run: cp dist/index.html dist/404.html && touch dist/.nojekyll
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: pages-redirect
 
   deploy:
     needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
